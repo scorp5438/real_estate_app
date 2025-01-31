@@ -24,12 +24,14 @@ class PersonalData(models.Model):
         ('Рассрочка', 'Рассрочка'),
     ]
 
-    city = models.CharField(max_length=50 ,choices=city_list, verbose_name='Город')
-    target = models.CharField(max_length=50, choices=target_list, verbose_name='Цели')
-    type_of_housing = models.CharField(max_length=50,choices=type_horse_list, verbose_name='Тип жилья')
-    payment_type = models.CharField(max_length=50,choices=payment_type_list, verbose_name='Тип жилья')
-    full_name = models.CharField(max_length=50,verbose_name='ФИО')
-    phone_number = models.CharField(max_length=50,verbose_name='Номер телефона')
+    city = models.CharField(max_length=50, blank=True, null=True, choices=city_list, verbose_name='Город')
+    target = models.CharField(max_length=50, blank=True, null=True, choices=target_list, verbose_name='Цели')
+    type_of_housing = models.CharField(max_length=50, blank=True, null=True, choices=type_horse_list,
+                                       verbose_name='Тип жилья')
+    payment_type = models.CharField(max_length=50, blank=True, null=True, choices=payment_type_list,
+                                    verbose_name='Тип жилья')
+    full_name = models.CharField(max_length=50, verbose_name='ФИО')
+    phone_number = models.CharField(max_length=50, verbose_name='Номер телефона')
 
     class Meta:
         verbose_name = 'Анкета'
