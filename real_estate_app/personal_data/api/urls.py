@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import DataApiView, PersonalDataCreateApiView, PersonalDataShortCreateApiView
+from .views import DataApiView, PersonalDataCreateApiView, PersonalDataShortCreateApiView, TestCSRFView
 
 router = DefaultRouter()
 
@@ -10,6 +10,6 @@ router.register(r'personal_data_full_create', PersonalDataCreateApiView, basenam
 router.register(r'personal_data_short_create', PersonalDataShortCreateApiView, basename='personal_data_short_create')
 
 urlpatterns = [
-    # path('get-csrf-token/', TestCSRFView.get_csrf_token, name='get-csrf-token'),
+    path('get-csrf-token/', TestCSRFView.get_csrf_token, name='get-csrf-token'),
     path('', include(router.urls))
 ]
